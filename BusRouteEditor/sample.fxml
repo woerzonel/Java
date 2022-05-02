@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="teamEtransitsystem.Controller">
+   <children>
+      <Pane prefHeight="500.0" prefWidth="1400.0">
+         <children>
+            <HBox fx:id="editStopTimeGroupButtons" layoutX="250.0" prefHeight="100.0" prefWidth="1000.0">
+               <children>
+                  <VBox prefHeight="100.0" prefWidth="135.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#subtractArrivalTimes" text="(-) Arrival Times" />
+                        <Button mnemonicParsing="false" onAction="#addArrivalTimes" text="(+) Arrival Times" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="100.0" prefWidth="163.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#subtractDepartureTimes" text="(-) Departure Times" />
+                        <Button mnemonicParsing="false" onAction="#addDepartureTimes" text="(+) Departure Times" />
+                     </children>
+                  </VBox>
+                  <Button mnemonicParsing="false" onAction="#addStopTime" text="Add Stop Time" />
+               </children>
+            </HBox>
+            <Label fx:id="chooseTripLabel" layoutX="50.0" layoutY="50.0" prefHeight="21.0" prefWidth="200.0" text="Choose Trip to Edit All StopTimes" />
+            <Label fx:id="upcomingTripLabel" layoutX="751.0" layoutY="87.0" text="Label" visible="false" />
+            <HBox fx:id="editHBox" layoutX="25.0" layoutY="70.0" prefHeight="312.0" prefWidth="967.0" visible="false">
+               <children>
+                  <ListView fx:id="editListOne" minWidth="-Infinity" onEditStart="#editStartOne" prefHeight="312.0" prefWidth="150.0">
+                     <padding>
+                        <Insets right="-20.0" />
+                     </padding></ListView>
+                  <ListView fx:id="editListTwo" minWidth="-Infinity" onEditStart="#editStartTwo" prefHeight="312.0" prefWidth="150.0">
+                     <padding>
+                        <Insets right="-20.0" />
+                     </padding></ListView>
+                  <ListView fx:id="editListThree" layoutX="10.0" layoutY="10.0" minWidth="-Infinity" onEditStart="#editStartThree" prefHeight="312.0" prefWidth="150.0">
+                     <padding>
+                        <Insets right="-20.0" />
+                     </padding></ListView>
+                  <ListView fx:id="editListFour" layoutX="142.0" layoutY="10.0" minWidth="-Infinity" onEditStart="#editStartFour" prefHeight="336.0" prefWidth="150.0">
+                     <padding>
+                        <Insets right="-20.0" />
+                     </padding></ListView>
+                  <ListView fx:id="editListFive" layoutX="142.0" layoutY="10.0" minWidth="-Infinity" onEditStart="#editStartFive" prefHeight="336.0" prefWidth="150.0">
+                     <padding>
+                        <Insets right="-20.0" />
+                     </padding></ListView>
+                  <ListView fx:id="editListSix" layoutX="406.0" layoutY="10.0" minWidth="-Infinity" onEditStart="#editStartSix" prefHeight="336.0" prefWidth="150.0">
+                     <padding>
+                        <Insets right="-20.0" />
+                     </padding></ListView>
+                  <ListView fx:id="editListSeven" minWidth="-Infinity" onEditStart="#editStartSeven" prefHeight="312.0" prefWidth="150.0">
+                     <padding>
+                        <Insets right="-20.0" />
+                     </padding></ListView>
+                  <ListView fx:id="editListEight" minWidth="-Infinity" onEditStart="#editStartEight" prefHeight="200.0" prefWidth="150.0">
+                     <padding>
+                        <Insets right="-20.0" />
+                     </padding></ListView>
+                  <ListView fx:id="editListNine" minWidth="-Infinity" onEditStart="#editStartNine" prefHeight="200.0" prefWidth="150.0">
+                     <padding>
+                        <Insets right="-20.0" />
+                     </padding></ListView>
+               </children>
+            </HBox>
+            <ListView fx:id="searchDisplay" layoutX="751.0" layoutY="69.0" prefHeight="186.0" prefWidth="150.0">
+               <padding>
+                  <Insets right="-20.0" />
+               </padding></ListView>
+            <ListView fx:id="searchDisplay1" layoutX="901.0" layoutY="69.0" prefHeight="186.0" prefWidth="150.0" visible="false" />
+            <HBox fx:id="idBox" layoutX="14.0" layoutY="48.0" prefHeight="288.0" prefWidth="676.0">
+               <children>
+                  <ListView fx:id="routesTextArea" prefHeight="200.0" prefWidth="200.0" />
+                  <ListView fx:id="stopsTextArea" prefHeight="200.0" prefWidth="200.0" />
+                  <ListView fx:id="stopTimesTextArea" prefHeight="200.0" prefWidth="200.0" />
+                  <ListView fx:id="tripsTextArea" prefHeight="200.0" prefWidth="200.0" />
+               </children>
+            </HBox>
+            <MenuBar>
+              <menus>
+                <Menu fx:id="fileMenu" mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#importFile" text="Import" />
+                        <MenuItem fx:id="exportMenuItem" disable="true" mnemonicParsing="false" onAction="#exportFile" text="Export" />
+                  </items>
+                </Menu>
+                  <Menu fx:id="homeMenu" disable="true" mnemonicParsing="false" text="Home">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#goHome" text="Are You Sure?" />
+                     </items></Menu>
+                <Menu fx:id="editMenu" disable="true" mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem fx:id="editStopMenuItem" mnemonicParsing="false" onAction="#editStops" text="Stops" />
+                        <MenuItem fx:id="editRouteMenuItem" mnemonicParsing="false" onAction="#editRoutes" text="Route" />
+                        <MenuItem fx:id="editTripMenuItem" mnemonicParsing="false" onAction="#editTrips" text="Trip" />
+                        <MenuItem fx:id="editStopTimeMenuItem" mnemonicParsing="false" onAction="#editStopTimes" text="Stop Time" />
+                        <MenuItem fx:id="editStopTimesByGroupMenuItem" mnemonicParsing="false" onAction="#editStopTimesByGroup" text="Stop Times By Group" />
+                  </items>
+                </Menu>
+                  <Menu fx:id="searchMenu" disable="true" mnemonicParsing="false" text="Search">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#searchRouteIDForStops" text="Stops that are on Route" />
+                        <MenuItem mnemonicParsing="false" onAction="#searchStopIDForRoute" text="Routes that Contain Stop ID" />
+                        <MenuItem mnemonicParsing="false" onAction="#searchTripIDForArrivals" text="Stop Times on Trip" />
+                        <MenuItem mnemonicParsing="false" onAction="#searchStopForNextTrip" text="Next Trip on Stop" />
+                        <MenuItem mnemonicParsing="false" onAction="#searchRouteForFutureTrips" text="Next Trip on Route" />
+                    </items>
+                  </Menu>
+              </menus>
+            </MenuBar>
+            <TextField fx:id="searchBarText" disable="true" layoutX="363.0" layoutY="1.0" onAction="#searchBoxHandler" />
+            <Label fx:id="searchValueLabel" layoutX="271.0" layoutY="6.0" text="Search Value:" />
+            <Label fx:id="searchedForLabel" layoutX="790.0" layoutY="48.0" text="..." />
+            <Label fx:id="searchedLabel" layoutX="719.0" layoutY="48.0" text="Searched:" />
+            <Button fx:id="saveChangesButton" layoutX="650.0" layoutY="375.0" mnemonicParsing="false" onAction="#saveEdits" text="Save Changes" visible="false" />
+            <Button fx:id="discardChangesButton" layoutX="500.0" layoutY="375.0" mnemonicParsing="false" onAction="#discardEdits" text="Discard Changes" visible="false" />
+            <Button fx:id="addTimeBtn" layoutX="526.0" layoutY="1.0" mnemonicParsing="false" onAction="#addTime" text="Add Time" visible="false" />
+            <Button fx:id="subTimeBtn" layoutX="604.0" layoutY="1.0" mnemonicParsing="false" onAction="#subTime" text="Sub Time" visible="false" />
+            <Button fx:id="newTimeBtn" layoutX="681.0" layoutY="1.0" mnemonicParsing="false" onAction="#newTime" text="New Time" visible="false" />
+            <ListView fx:id="tripIDList" layoutX="50.0" layoutY="100.0" onMouseClicked="#tripIDClicked" prefHeight="300.0" prefWidth="200.0" />
+         </children>
+      </Pane>
+   </children>
+   <opaqueInsets>
+      <Insets left="10.0" />
+   </opaqueInsets>
+</HBox>
